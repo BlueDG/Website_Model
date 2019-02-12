@@ -1,0 +1,25 @@
+<?php
+
+// var_dump($_POST);
+
+require_once('libraries/database.php');
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+$passwordConfirm = $_POST['passwordConfirm'];
+$username = $_POST['username'];
+
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+/*var_dump($hash);
+die(); // exit = die c'est un alias ; ce qui est en dessous ne se fera pas */
+
+addUser($email, $hash, $username);
+// pour faire un admin on utiliserait cette fonction avec addUser($email, $hash, $username, 1);
+
+
+header('Location: login.php');
+exit();
+
+// avant la requête sql il faut hasher le password

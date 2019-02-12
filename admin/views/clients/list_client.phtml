@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des clients</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      
+  </header>
+  <section>
+      <h1>Répertoire clientèle</h1>
+      <a href="add_client.php">Ajouter un client</a>
+      <table class="standard-table">
+            <a href="../../index.php">Nos plats</a>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Adresse Email</th>
+                    <th>Mot de passe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($clients as $client): ?>
+                <tr>
+                    <td>
+                        <?= $client['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $client['last_name']; ?>
+                    </td>
+                    <td>
+                        <?= $client['first_name']; ?>
+                    </td>
+                    <td>
+                        <?= $client['phone_number']; ?>
+                    </td>
+                    <td>
+                        <?= $client['email']; ?>
+                    </td>
+                    <td>
+                        <?= $client['password']; ?>
+                    </td>
+                    <td>
+                        <a href="edit_client.php?id=<?= $client['Id']; ?>">Modifier un compte client</a>
+                        <br>
+                        <a href="delete_client.php?id=<?= $client['Id']; ?>" onclick="return confirm('Êtes vous sur de vouloir supprimer le compte de <?= addslashes($client['last_name']); ?> <?= addslashes($client['first_name']); ?> ?');">Supprimer</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+  </section>
+  
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?php
+
+require_once('libraries/utils.php');
+
+$index = $_GET['index'];
+
+// connexion BDD
+require_once 'libraries/database.php';
+
+// Suppression de l'élément qui se trouve à l'emplacement $index dans le tableau SESSION['panier']
+removeFromCart($index);
+
+// Redirection
+redirect('basket.php');

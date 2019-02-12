@@ -1,0 +1,28 @@
+<?php
+
+require_once 'libraries/database.php';
+require_once 'libraries/utils.php';
+
+// 2) Récupération des données dans le POST (envoi du formulaire)
+$lastName = $_POST['lastname'];
+$firstName = $_POST['firstname'];
+$phone = $_POST['phoneNumber'];
+$email = $_POST['email'];
+$address = $_POST['address'];
+$postalCode = $_POST['postalCode'];
+$city = $_POST['city'];
+$review = $_POST['review'];
+
+$id = addOrder($lastName, $firstName, $email, $phone, $address, $postalCode, $city, $review);
+
+// Pour chaque produit du panier ($_SESSION['panier'])
+// On veut insérer une ligne dans la table order_meal
+// [1, 2, 1, 3]
+foreach(getCart() as $mealId) {
+    addMealToOrder($mealId, $id);
+}
+
+emptyCart();
+
+
+redirect('order_confirm.php');

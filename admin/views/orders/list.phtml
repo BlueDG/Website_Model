@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des commandes</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      
+  </header>
+  <section>
+      <h1>Liste des commandes</h1>
+      <table class="standard-table">
+            <a href="../../index.php">Nos plats</a>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Adresse</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                    <th>Date de commande</th>
+                    <th>Commentaire</th>
+                    <th>Total</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($orders as $order): ?>
+                <tr>
+                    <td>
+                        <?= $order['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $order['last_name']; ?>
+                    </td>
+                    <td>
+                        <?= $order['first_name']; ?>
+                    </td>
+                    <td>
+                        <?= $order['email']; ?>
+                    </td>
+                    <td>
+                        <?= $order['phone_number']; ?>
+                    </td>
+                    <td>
+                        <?= $order['address']; ?>
+                    </td>
+                    <td>
+                        <?= $order['postal_code']; ?>
+                    </td>
+                    <td>
+                        <?= $order['city']; ?>
+                    </td>
+                    <td>
+                        <?= $order['order_date']; ?>
+                    </td>
+                    <td>
+                        <?= $order['review']; ?>
+                    </td>
+                    <td>
+                        <?= $order['total']; ?>
+                    </td>
+                    <td>
+                        <a href="order_details.php?id=<?= $order['Id']; ?>">
+                            Détails de la commande
+                        </a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+  </section>
+  
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+
+        <section class="entrees">
+            <h1 class="title-entrees">Nos entrées</h1>
+            
+            <?php foreach($entrees as $entree): ?>
+                <article class="item-entrees">
+                    <img src="<?= $entree['image']; ?>">
+                    <h3 class="item-entrees-title"><?= $entree['title']; ?></h3>
+                    <p><?= $entree['description']; ?></p>
+                    <p><?= $entree['price']; ?> €</p>
+                    <a href="basketController.php?task=add&id=<?= $entree['Id']; ?>" class="cta">Ajouter au panier</a>
+                </article>
+            <?php endforeach; ?>
+            
+        </section>
+        
+        <section class="plats">
+            <h1 class="title-plats">Nos plats</h1>
+            
+            <?php foreach($plats as $plat): ?>
+                <article class="item-plats">
+                    <img src="<?= $plat['image']; ?>">
+                    <h3 class="item-plats-title"><?= $plat['title']; ?></h3>
+                    <p><?= $plat['description']; ?></p>
+                    <p><?= $plat['price']; ?> €</p>
+                    <a href="basketController.php?task=add&id=<?= $plat['Id']; ?>" class="cta">Ajouter au panier</a>
+                </article>
+            <?php endforeach; ?>
+            
+        </section>
+        
+    

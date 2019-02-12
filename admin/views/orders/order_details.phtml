@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Détail de la commande</title>
+</head>
+<body>
+    <h1>Détail de la commande</h1>
+    <ul>
+        <li>Numéro de commande: <?= $orderDetail['Id']; ?></li>
+        <li>Nom: <?= $orderDetail['last_name']; ?></li>
+        <li>Prénom: <?= $orderDetail['first_name']; ?></li>
+        <li>Email: <?= $orderDetail['email']; ?></li>
+        <li>Numéro de téléphone: <?= $orderDetail['phone_number']; ?></li>
+        <li>Adresse: <?= $orderDetail['address']; ?></li>
+        <li>Code postal: <?= $orderDetail['postal_code']; ?></li>
+        <li>Ville: <?= $orderDetail['city']; ?></li>
+        <li>Date de commande: <?= $orderDetail['order_date']; ?></li>
+        <li>Commentaire: <?= $orderDetail['review']; ?></li>
+    </ul>
+    <table class="standard-table">
+            <thead>
+                <tr>
+                    <th>Repas</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($meals as $meal): ?>
+                <tr>
+                    <td>
+                        <?= $meal['title']; ?>
+                    </td>
+                    <td><img src=
+                        "<?= $meal['image']; ?>">
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+</body>
+</html>

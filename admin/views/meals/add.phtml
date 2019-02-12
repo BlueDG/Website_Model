@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajout d'un plat</title>
+</head>
+<body>
+    <h1>Ajout d'un plat</h1>
+    <form action="save.php" method="POST">
+        <input type="text" name="mealTitle" placeholder="Indiquez le nom du plat" required>
+        <input type="text" name="mealDescription" placeholder="Veuillez décrire le plat" required>
+        <input type="number" name="mealPrice" placeholder="Indiquez le prix" min="1" required>
+        <select name="vegan" required>
+            <option value="">Vegan</option>
+            <option value="1">Oui</option>
+            <option value="0">Non</option>
+        </select>
+        <select name="category_id" required>
+            <option value="">Catégorie</option>
+            <option value="1">Entrée</option>
+            <option value="2">Plat</option>
+        </select>
+        <input type="url" name="mealImage" placeholder="Entrez l'url de votre image" required>
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

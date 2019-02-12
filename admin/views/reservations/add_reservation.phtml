@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajout d'une réservation</title>
+</head>
+<body>
+    <h1>Établir une réservation</h1>
+    <form action="save_reservation.php" method="POST">
+        <input type="text" name="reservationLastname" placeholder="Indiquez le nom du client" required>
+        <input type="text" name="reservationFirstname" placeholder="Indiquez le prénom du client" required>
+        <input type="number" name="reservationNumber" placeholder="Indiquez le nombre de participants" required>
+        <input type="number" name="reservationPhone" placeholder="Indiquez le numéro de téléphone" required>
+        <input type="datetime-local" name="reservationDate" placeholder="Indiquez la date" required>
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

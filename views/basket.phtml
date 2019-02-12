@@ -1,0 +1,48 @@
+
+        <table>
+            <caption>Vos commandes</caption>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                    <th>Vegan</th>
+                    <th>Catégorie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($meals as $index => $meal): ?>
+                <tr>
+                    <td>
+                        <?= $meal['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['title']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['description']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['price']; ?>
+                    </td>
+                    <td>
+                      <img src="<?= $meal['image']; ?>" alt="">
+                    </td>
+                    <td><!-- Ici on affiche un terme OU un autre grâce au système Booléen-->
+                      <?php if($meal['vegan'] == 1) : ?>
+                        Oui
+                      <?php else: ?>
+                        Non
+                      <?php endif ?>
+                    </td>
+                    <td>
+                        <a href="basketController.php?task=delete&index=<?= $index ?>" onclick="return confirm('Êtes vous sur de vouloir supprimer <?= addslashes($meal['title']); ?> ?');">Supprimer</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <a href="orderController.php?task=orderForm">Confirmer la commande</a>
+   

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Modification d'un compte client</h1>
+    <form action="update_client.php" method="POST">
+        <input type="hidden" name="clientId" value="<?= $client['Id']; ?>">
+        <input type="text" name="lastName" value="<?= $client['last_name']; ?>" placeholder="Nom" required>
+        <input type="text" name="firstName" value="<?= $client['first_name']; ?>" placeholder="Prénom" required>
+        <input type="number" name="phoneNumber" value="<?= $client['phone_number']; ?>" placeholder="Numéro de téléphone" required>
+        <input type="text" name="email" value="<?= $client['email']; ?>" placeholder="Adresse email"  required>
+        <input type="text" name="password" value="<?= $client['password']; ?>" placeholder="Mot de passe" required>
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

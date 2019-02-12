@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Modification d'un plat</h1>
+    <form action="update.php" method="POST">
+        <input type="hidden" name="mealId" value="<?= $meal['Id']; ?>">
+        <input type="text" name="mealTitle" value="<?= $meal['title']; ?>" placeholder="Entrez le nom du plat" required>
+        <input type="text" name="mealDescription" value="<?= $meal['description']; ?>" placeholder="Veuillez décrire ce plat" required>
+        <input type="number" name="mealPrice" value="<?= $meal['price']; ?>" placeholder="Indiquez votre prix" min="1" required>
+        <select name="vegan" required>
+            <option value="">Vegan</option>
+            <option value="1" <?php if($meal['vegan'] == 1) : ?>selected<?php endif ?>>Oui</option>
+            <option value="0" <?php if($meal['vegan'] == 0) : ?>selected<?php endif ?>>Non</option>
+        </select>
+        <select name="category_id" required>
+            <option value="">Catégorie</option>
+            <option value="1" <?php if($meal['category_id'] == 1) : ?>selected<?php endif ?>>Entrée</option>
+            <option value="2" <?php if($meal['category_id'] == 2) : ?>selected<?php endif ?>>Plat</option>
+        </select>
+        <input type="url" name="mealImage" value="<?= $meal['image']; ?>" placeholder="Entrez l'url de votre image" required>
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

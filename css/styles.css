@@ -1,0 +1,25 @@
+/***************** HEADER ********************************/ 
+
+*{
+    box-sizing: border-box;
+}
+
+
+table img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+nav a {
+    text-decoration: none;
+    color: red;
+    
+}
+
+
+nav a i {
+    padding-right: 20px;
+    padding-left: 20px;
+    
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des réservations</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      
+  </header>
+  <section>
+      <h1>Liste des réservations</h1>
+      <a href="add_reservation.php">Ajouter une réservation</a>
+      <table class="standard-table">
+            <a href="../../index.php">Nos plats</a>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Nombre de participants</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Date de réservation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($reservations as $reservation): ?>
+                <tr>
+                    <td>
+                        <?= $reservation['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $reservation['last_name']; ?>
+                    </td>
+                    <td>
+                        <?= $reservation['first_name']; ?>
+                    </td>
+                    <td>
+                        <?= $reservation['pax']; ?>
+                    </td>
+                    <td>
+                        <?= $reservation['phone_number']; ?>
+                    </td>
+                    <td>
+                        <?= $reservation['date_reservation']; ?>
+                    </td>
+                    <td>
+                        <a href="edit_reservation.php?id=<?= $reservation['Id']; ?>">Modifier une réservation</a>
+                        <br>
+                        <a href="delete_reservation.php?id=<?= $reservation['Id']; ?>" onclick="return confirm('Êtes vous sur de vouloir supprimer la réservation de <?= addslashes($reservation['last_name']); ?> <?= addslashes($reservation['first_name']); ?> ?');">Supprimer</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+  </section>
+  
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?php
+
+require_once 'libraries/utils.php';
+
+$meals = getMealsFromCart();
+
+// var_dump($_SESSION['panier']);
+// var_dump($meals);
+
+include 'views/basket.phtml';

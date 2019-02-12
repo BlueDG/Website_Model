@@ -1,0 +1,7 @@
+<?php
+
+require_once 'libraries/utils.php';
+
+$_SESSION['user'] = null;
+
+redirect('index.php');

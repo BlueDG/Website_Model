@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des catégories</title>
+    <link href="../../../css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      
+  </header>
+  <section>
+      <h1>Types de plat</h1>
+      <table class="standard-table">
+            <a href="../../index.php">Nos plats</a>
+            <a href="add_category.php">Ajouter un type de plat</a>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($categories as $category): ?>
+                <tr>
+                    <td>
+                        <?= $category['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $category['title']; ?>
+                    </td>
+                    <td>
+                        <a href="edit_category.php?id=<?= $category['Id']; ?>">Modifier</a>
+                        <br>
+                        <a href="delete_category.php?id=<?= $category['Id']; ?>" onclick="return confirm('Êtes vous sur de vouloir supprimer <?= addslashes($category['title']); ?> ?');">Supprimer</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+  </section>
+  
+</body>
+</html>

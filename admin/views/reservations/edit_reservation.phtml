@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Modification d'une réservation</h1>
+    <form action="update_reservation.php" method="POST">
+        <input type="hidden" name="reservationId" value="<?= $reservation['Id']; ?>">
+        <input type="text" name="lastName" value="<?= $reservation['last_name']; ?>" placeholder="Nom" required>
+        <input type="text" name="firstName" value="<?= $reservation['first_name']; ?>" placeholder="Prénom" required>
+        <input type="number" name="number" value="<?= $reservation['pax']; ?>" placeholder="Nombre de personnes" min="1" required>
+        <input type="number" name="phone" value="<?= $reservation['phone_number']; ?>" placeholder="Numéro de téléphone"  required>
+        <input type="datetime-local" name="date" value="<?= $reservation['date_reservation']; ?>" placeholder="Date" required>
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

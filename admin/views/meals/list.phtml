@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste de plats</title>
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      
+  </header>
+  <section>
+      <h1>Réservations</h1>
+         <a href="tasks/reservations/index_reservation.php">Établir une réservation</a> 
+      <h1>Clientèle</h1>
+         <a href="tasks/clients/index_client.php">Répertoire</a>
+      <h1>Commandes</h1>
+         <a href="tasks/orders/index.php">Liste des commandes</a> 
+      <h1>Menu</h1>
+      <table class="standard-table">
+            <caption>Liste des plats</caption>
+            <a href="tasks/categories/index_category.php">Nos types de plat</a>
+            <a href="tasks/meals/add.php">Ajouter un plat</a>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                    <th>Vegan</th>
+                    <th>Catégorie</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($meals as $meal): ?>
+                <tr>
+                    <td>
+                        <?= $meal['Id']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['title']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['description']; ?>
+                    </td>
+                    <td>
+                        <?= $meal['price']; ?>
+                    </td>
+                    <td>
+                      <img src="<?= $meal['image']; ?>" alt="">
+                    </td>
+                    <td><!-- Ici on affiche un terme OU un autre grâce au système Booléen-->
+                      <?php if($meal['vegan'] == 1) : ?>
+                        Oui
+                      <?php else: ?>
+                        Non
+                      <?php endif ?>
+                    </td>
+                    <td>
+                        <?= $meal['category_title']; ?>
+                    </td>
+                    <td>
+                        <a href="tasks/meals/edit.php?id=<?= $meal['Id']; ?>">Modifier</a>
+                        <br>
+                        <a href="tasks/meals/delete.php?id=<?= $meal['Id']; ?>" onclick="return confirm('Êtes vous sur de vouloir supprimer <?= addslashes($meal['title']); ?> ?');">Supprimer</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        
+  </section>
+  
+</body>
+</html>

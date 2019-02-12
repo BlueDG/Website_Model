@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/flexslider.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(window).load(function() {
+        $('.flexslider').flexslider();
+      });
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/styles.css">
+    <title>Page d'accueil</title>
+</head>
+<body>
+    <header>
+       <nav>
+           <a href="index.php" alt="page d'accueil" class="accueil_logo"><i class="fab fa-gripfire"></i>Accueil</a>
+           <a href="admin/tasks/reservations/add_reservation.php" alt="page de réservation" class="reservation_logo"><i class="fas fa-utensils"></i>Réserver votre table</a>
+           <a href="basketController.php?task=show" class="basket"><i class="fas fa-shopping-cart"></i><span>Votre panier (<?= count(getCart()) ?>)</span>
+                
+           </a>
+           <?php if(isConnected() == false) : ?>
+               <a href="userController.php?task=loginForm"><i class="fas fa-user"></i>Connexion</a>
+            <?php else:?>
+                <a href="userController.php?task=logout"><i class="fas fa-user"></i>Deconnexion</a>
+            <?php endif;?>
+       </nav> 
+    </header>
+    
+    <div>
+        <?php if(empty($_SESSION['user'])):?>
+            <p>Bonjour, n'hésitez pas à créer un compte.</p>
+        <?php else:?>
+            <p>Bonjour cher utilisateur.</p>
+        <?php endif;?>
+    </div>
+    
+    <main class="container">
